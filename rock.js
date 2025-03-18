@@ -1,5 +1,5 @@
 //step one:
-console.log("hello world")
+console.log("hello world");
 //step 2:
 function getComputerChoice() {
   const randomNumber = Math.random();
@@ -21,6 +21,8 @@ let computerScore = 0;
 //Step 5
 function playRound(humanChoice, computerChoice) {
   const human = humanChoice.toLowerCase();
+  console.log(`Computer chose: ${computerChoice}`);
+  console.log(`You chose: ${human}`);
   if (human === computerChoice) {
     console.log("It's a tie!");
   } else if (
@@ -44,7 +46,7 @@ function playGame() {
     playRound(humanSelection, computerSelection);
   }
 
- console.log(`Final Score: Human ${humanScore}, Computer ${computerScore}`);
+  console.log(`Final Score: Human ${humanScore}, Computer ${computerScore}`);
   if (humanScore > computerScore) {
     console.log("You win the game!");
   } else if (computerScore > humanScore) {
