@@ -1,59 +1,61 @@
-//step one:
-console.log("hello world");
-//step 2:
-function getComputerChoice() {
-  const randomNumber = Math.random();
-  if (randomNumber < 1 / 3) {
-    return "rock";
-  } else if (randomNumber < 2 / 3) {
-    return "paper";
-  } else {
-    return "scissors";
-  }
-}
-//Step 3
-function getHumanChoice() {
-  return prompt("Enter your choice: rock, paper, or scissors");
-}
-//Step 4
-let humanScore = 0;
-let computerScore = 0;
-//Step 5
-function playRound(humanChoice, computerChoice) {
-  const human = humanChoice.toLowerCase();
-  console.log(`Computer chose: ${computerChoice}`);
-  console.log(`You chose: ${human}`);
-  if (human === computerChoice) {
-    console.log("It's a tie!");
-  } else if (
-    (human === "rock" && computerChoice === "scissors") ||
-    (human === "paper" && computerChoice === "rock") ||
-    (human === "scissors" && computerChoice === "paper")
-  ) {
-    humanScore++;
-    console.log(`You win! ${human} beats ${computerChoice}`);
-  } else {
-    computerScore++;
-    console.log(`You lose! ${computerChoice} beats ${human}`);
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Manipulation Exercise</title>
+  <style>
+    /* Basic styling */
+    .container {
+      margin: 20px;
+      padding: 20px;
+      border: 2px dashed #ccc;
+    }
+  </style>
+</head>
+<body>
 
-//step 6
-function playGame() {
-  for (let i = 0; i < 5; i++) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
+  <div class="container" id="container"></div>
 
-  console.log(`Final Score: Human ${humanScore}, Computer ${computerScore}`);
-  if (humanScore > computerScore) {
-    console.log("You win the game!");
-  } else if (computerScore > humanScore) {
-    console.log("You lose the game!");
-  } else {
-    console.log("The game is a tie!");
-  }
-}
+  <script>
+    // Your JavaScript goes here!
 
-playGame();
+    // Select the container
+    const container = document.querySelector('#container');
+
+    // 1. Create a <p> with red text
+    const redParagraph = document.createElement('p');
+    redParagraph.textContent = "Hey I'm red!";
+    redParagraph.style.color = 'red';
+    container.appendChild(redParagraph);
+
+    // 2. Create an <h3> with blue text
+    const blueH3 = document.createElement('h3');
+    blueH3.textContent = "I'm a blue h3!";
+    blueH3.style.color = 'blue';
+    container.appendChild(blueH3);
+
+    // 3. Create a <div> with black border and pink background
+    const divBox = document.createElement('div');
+    divBox.style.border = '1px solid black';
+    divBox.style.backgroundColor = 'pink';
+
+    // Inside the div:
+    // - a new <h1>
+    const insideH1 = document.createElement('h1');
+    insideH1.textContent = "I'm in a div";
+
+    // - a new <p>
+    const insideP = document.createElement('p');
+    insideP.textContent = "ME TOO!";
+
+    // Append the <h1> and <p> to the div
+    divBox.appendChild(insideH1);
+    divBox.appendChild(insideP);
+
+    // Then append the div to the container
+    container.appendChild(divBox);
+
+  </script>
+
+</body>
+</html>
